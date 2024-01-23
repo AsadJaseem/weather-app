@@ -1,11 +1,11 @@
-const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY';
+const apiKey = '971c700d94fe02fd679d3cbd26c77877';
 
 function getWeather() {
     const cityInput = document.getElementById('cityInput');
     const cityName = cityInput.value;
 
     if (cityName) {
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+        const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={971c700d94fe02fd679d3cbd26c77877}`;
 
         fetch(apiUrl)
             .then(response => response.json())
