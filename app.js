@@ -4,8 +4,8 @@ function getWeather() {
 
     const cityName = cityInput.value;
 
-    // For a real-world application, you would replace the following code with API calls
-    // to fetch actual weather data based on the entered city.
+    // 971c700d94fe02fd679d3cbd26c77877
+    // 971c700d94fe02fd679d3cbd26c77877
 
     const dummyWeatherData = {
         temperature: '25°C',
