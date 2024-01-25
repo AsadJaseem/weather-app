@@ -23,6 +23,7 @@ function getWeather() {
                 const result = `Temperature: ${temperature}°C, ${description}`;
 
                 weatherInfoDiv.innerHTML = result;
+                clearSearchBox(); // Clear the search box after submitting
             }
         })
         .catch(error => {
@@ -30,3 +31,14 @@ function getWeather() {
             weatherInfoDiv.innerHTML = 'Error fetching weather data. Please try again later.';
         });
 }
+
+function clearSearchBox() {
+    document.getElementById('cityInput').value = '';
+}
+
+// Allow submitting by pressing Enter key
+document.getElementById('cityInput').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        getWeather();
+    }
+});
