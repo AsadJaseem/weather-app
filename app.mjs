@@ -6,7 +6,7 @@ function getWeather() {
     const cityName = cityInput.value.trim();
 
     if (cityName === '') {
-        alert('Please enter a city name.');
+        weatherInfoDiv.innerHTML = 'Please enter a city name.';
         return;
     }
 
@@ -16,7 +16,7 @@ function getWeather() {
         .then(response => response.json())
         .then(data => {
             if (data.cod === '404') {
-                alert('City not found. Please enter a valid city name.');
+                weatherInfoDiv.innerHTML = 'City not found. Please enter a valid city name.';
             } else {
                 const temperature = Math.round(data.main.temp - 273.15); // Convert temperature from Kelvin to Celsius
                 const description = data.weather[0].description;
@@ -27,6 +27,6 @@ function getWeather() {
         })
         .catch(error => {
             console.error('Error fetching weather data:', error);
-            alert('Error fetching weather data. Please try again later.');
+            weatherInfoDiv.innerHTML = 'Error fetching weather data. Please try again later.';
         });
 }
