@@ -1,25 +1,32 @@
 function getWeather() {
+    const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
     const cityInput = document.getElementById('cityInput');
-    const weatherInfo = document.getElementById('weatherInfo');
+    const weatherInfoDiv = document.getElementById('weatherInfo');
 
-    const cityName = cityInput.value;
+    const cityName = cityInput.value.trim();
 
-    // 971c700d94fe02fd679d3cbd26c77877
+    if (cityName === '') {
+        alert('Please enter a city name.');
+        return;
+    }
 
-    const dummyWeatherData = {
-        temperature: '25°C',
-        description: 'Sunny',
-        humidity: '50%',
-        wind: '10 m/s',
-    };
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
 
-    const weatherHTML = `
-        <p>City: ${cityName}</p>
-        <p>Temperature: ${dummyWeatherData.temperature}</p>
-        <p>Description: ${dummyWeatherData.description}</p>
-        <p>Humidity: ${dummyWeatherData.humidity}</p>
-        <p>Wind: ${dummyWeatherData.wind}</p>
-    `;
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.cod === '404') {
+                alert('City not found. Please enter a valid city name.');
+            } else {
+                const temperature = Math.round(data.main.temp - 273.15); // Convert temperature from Kelvin to Celsius
+                const description = data.weather[0].description;
+                const result = `Temperature: ${temperature}°C, ${description}`;
 
-    weatherInfo.innerHTML = weatherHTML;
+                weatherInfoDiv.innerHTML = result;
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+            alert('Error fetching weather data. Please try again later.');
+        });
 }
