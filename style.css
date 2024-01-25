@@ -1,32 +1,30 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-.container {
+    font-family: Arial, sans-serif;
     text-align: center;
+    margin: 50px;
 }
 
-.weather-container {
-    margin-top: 20px;
+h1 {
+    color: #333;
 }
 
-input {
+label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#cityInput {
     padding: 8px;
+    font-size: 16px;
 }
 
 button {
-    padding: 8px 16px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
     cursor: pointer;
+    border: none;
 }
 
 button:hover {
@@ -35,4 +33,6 @@ button:hover {
 
 #weatherInfo {
     margin-top: 20px;
+    font-size: 18px;
+    color: #333;
 }
