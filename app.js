@@ -5,7 +5,6 @@ function getWeather() {
     const cityName = cityInput.value;
 
     // 971c700d94fe02fd679d3cbd26c77877
-    // 971c700d94fe02fd679d3cbd26c77877
 
     const dummyWeatherData = {
         temperature: '25°C',
